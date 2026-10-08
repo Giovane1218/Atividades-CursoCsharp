@@ -22,8 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommunTestUtilities\CommunTestUtilities.csproj" />
     <ProjectReference Include="..\..\src\CashFlow.application\CashFlow.application.csproj" />
+    <ProjectReference Include="..\..\src\CashFlow.communication\CashFlow.communication.csproj" />
+    <ProjectReference Include="..\CommunTestUtilities\CommunTestUtilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
