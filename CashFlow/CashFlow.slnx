@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CashFlow.API/CashFlow.API.csproj" />
+    <Project Path="src/CashFlow.application/CashFlow.application.csproj" />
+    <Project Path="src/CashFlow.communication/CashFlow.communication.csproj" />
+    <Project Path="src/CashFlow.Domain/CashFlow.Domain.csproj" />
+    <Project Path="src/CashFlow.Exeption/CashFlow.Exeption.csproj" />
+    <Project Path="src/CashFlow.Infraestrutura/CashFlow.Infraestrutura.csproj" />
+  </Folder>
+  <Folder Name="/testes/">
+    <Project Path="CommunTestUtilities/CommunTestUtilities.csproj" Id="6fc33cdd-28e0-4717-91aa-f6828ab644f8" />
+    <Project Path="testes/Validators.testes/Validators.testes.csproj" Id="1d4e40a0-8650-47db-a1b7-6babb8fad732" />
+  </Folder>
+</Solution>

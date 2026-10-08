@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Petfólio.API/Petfólio.API.csproj" />
+  <Project Path="Petfólio.Application/Petfólio.Application.csproj" />
+  <Project Path="Petfólio.Comunication/Petfólio.Comunication.csproj" />
+</Solution>
