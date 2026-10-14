@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.2.0" />
+    <PackageReference Include="ClosedXML" Version="0.105.1" />
+    <PackageReference Include="FluentValidation" Version="12.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.13" />
+    <PackageReference Include="PDFsharp-MigraDoc" Version="6.5.0" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="UseCases\Faturas\Reports\Pdf\Fonts\Minecrafter.Reg.ttf" />
+    <EmbeddedResource Include="UseCases\Faturas\Reports\Pdf\Fonts\Roboto-VariableFont_wdth,wght.ttf" />
+    <EmbeddedResource Include="UseCases\Faturas\Reports\Pdf\Fonts\STJEDISE.TTF" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BarberShop.Domain\BarberShop.Domain.csproj" />
+    <ProjectReference Include="..\BarberShop.Exception\BarberShop.Exception.csproj" />
+    <ProjectReference Include="..\BerberShop.Communication\BarberShop.Communication.csproj" />
+  </ItemGroup>
+
+</Project>

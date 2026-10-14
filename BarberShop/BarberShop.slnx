@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Src/BarberShop.Application/BarberShop.Application.csproj" Id="f10912f1-246d-4f6d-8418-3961e99aaf4f" />
+  <Project Path="Src/BarberShop.Domain/BarberShop.Domain.csproj" Id="53eb0b82-0bf0-4d81-9964-dfb38329bb83" />
+  <Project Path="Src/BarberShop.Exception/BarberShop.Exception.csproj" Id="2abda090-607d-41ee-afb4-971aea28160e" />
+  <Project Path="Src/BarberShop.Infraestrura/BarberShop.Infraestrura.csproj" Id="a7932dac-feda-4c4c-a845-3f95e164f929" />
+  <Project Path="Src/BarberShopAPI/BarberShop.API.csproj" Id="4db1b8c3-d5c5-4932-ba2d-5b8eeeefa2c7" />
+  <Project Path="Src/BerberShop.Communication/BarberShop.Communication.csproj" Id="ec677f74-4ede-446b-b19f-318d004317ec" />
+</Solution>

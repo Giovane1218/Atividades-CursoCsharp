@@ -1,0 +1,12 @@
+global using AutoMapper;
+global using BarberShop.Communication.Requests;
+global using BarberShop.Communication.Responses;
+global using BarberShop.Domain.Entidades;
+global using BarberShop.Domain.Enums;
+global using BarberShop.Domain.Enums.Extensions;
+global using BarberShop.Domain.Reports;
+global using BarberShop.Domain.Repositors;
+global using BarberShop.Domain.Repositors.Faturas;
+global using BarberShop.Exception;
+global using BarberShop.Exception.ExceptionBase;
+global using FluentValidation;

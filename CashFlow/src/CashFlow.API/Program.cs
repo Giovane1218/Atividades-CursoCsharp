@@ -17,7 +17,6 @@ builder.Services.AddEndpointsApiExplorer();
 
 
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExeptionFilter)));
-
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
