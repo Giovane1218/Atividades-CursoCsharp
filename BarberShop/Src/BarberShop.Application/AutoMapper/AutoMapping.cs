@@ -1,7 +1,5 @@
-using AutoMapper;
-using BarberShop.Communication.Requests;
-using BarberShop.Communication.Responses;
-using BarberShop.Domain.Entidades;
+using BarberShop.Communication.Request.User;
+using BarberShop.Communication.Response.Users;
 
 namespace BarberShop.Application.AutoMapper;
 
@@ -16,9 +14,11 @@ public class AutoMapping : Profile
     public void RequestToEntity()
     {
         CreateMap<RequestFaturasJson, Fatura>()
-            .ForMember(destination => destination.forma_Pgmt, options => options.MapFrom(source => source.tipoPagamento))
-            .ForMember(destination => destination.nome_Cliente, options => options.MapFrom(source => source.nomeCliente))
-            .ForMember(destination => destination.nome_Barbeiro, options => options.MapFrom(source => source.nomeBarbeiro));
+            .ForMember(destino => destino.Tags, config => config.MapFrom(source => source.Tags.Distinct()));
+        CreateMap<RequestUserJson, Usuario>()
+            .ForMember(destino => destino.Password, config => config.Ignore());
+        CreateMap<Communication.Enums.Tags, Tag>()
+            .ForMember(destino => destino.Value, config => config.MapFrom(source => source));
     }
 
     public void EntityToResponse()
@@ -26,9 +26,8 @@ public class AutoMapping : Profile
         CreateMap<Fatura, ResponseRegisterFaturaJson>();
         CreateMap<Fatura, ResponseShortFaturaJson>();
         CreateMap<Fatura, ResponseFaturaJson>()
-            .ForMember(destination => destination.tipoPagamento, options => options.MapFrom(source => source.forma_Pgmt))
-            .ForMember(destination => destination.nomeCliente, options => options.MapFrom(source => source.nome_Cliente))
-            .ForMember(destination => destination.nomeBarbeiro, options => options.MapFrom(source => source.nome_Barbeiro))
-            .ForMember(destination => destination.atualizadoEm, options => options.MapFrom(source => source.atualizado_Em));
+            .ForMember(destino => destino.Tags, config => config.MapFrom(source => source.Tags.Select(tag => tag.Value)));
+        CreateMap<Usuario, ResponseUserJson>();
     }
+
 }

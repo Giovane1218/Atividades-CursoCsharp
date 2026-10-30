@@ -6,16 +6,16 @@ public class Fatura
 {
     public long Id { get; set; }
     public DateTime Data { get; set; }
-    public string? nota { get; set; }
+    public string? Nota { get; set; }
     public decimal Valor { get; set; }
-    public string servico { get; set; } = string.Empty; 
-    public PaymentType forma_Pgmt { get; set; }
-    public string nome_Cliente { get; set; } = string.Empty;
-    public string nome_Barbeiro { get; set; } = string.Empty;
-    public Status status  { get; set; }
-    public DateTime criado_Em  { get; set; }
-    public DateTime? atualizado_Em { get; set; }
-
-
-
+    public string Service { get; set; } = string.Empty; 
+    public PaymentType FormaPgmt { get; set; }
+    public string NomeCliente { get; set; } = string.Empty;
+    public string NomeBarbeiro { get; set; } = string.Empty;
+    public Status Status  { get; set; }
+    public ICollection<Tag> Tags { get; set; } = [];
+    public DateTime CreateOn  { get; set; }
+    public DateTime? LastUpdateOn{ get; set; }
+    public long UserId { get; set; }
+    public Usuario User { get; set; } = default!;
 }

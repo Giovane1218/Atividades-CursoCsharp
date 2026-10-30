@@ -5,4 +5,6 @@
   <Project Path="Src/BarberShop.Infraestrura/BarberShop.Infraestrura.csproj" Id="a7932dac-feda-4c4c-a845-3f95e164f929" />
   <Project Path="Src/BarberShopAPI/BarberShop.API.csproj" Id="4db1b8c3-d5c5-4932-ba2d-5b8eeeefa2c7" />
   <Project Path="Src/BerberShop.Communication/BarberShop.Communication.csproj" Id="ec677f74-4ede-446b-b19f-318d004317ec" />
+  <Project Path="Testes/CommumTestUtilities/CommumTestUtilities.csproj" Id="3a3c17f4-1c5c-4c6d-b77d-4d5c8228ff63" />
+  <Project Path="Testes/ValidatorTests/ValidatorTests.csproj" Id="02d15ff8-7116-4b02-a337-755c99fb47d5" />
 </Solution>

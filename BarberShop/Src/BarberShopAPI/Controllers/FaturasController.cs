@@ -5,18 +5,20 @@ using BarberShop.Application.UseCases.Faturas.Register;
 using BarberShop.Application.UseCases.Faturas.Update;
 using BarberShop.Communication.Requests;
 using BarberShop.Communication.Responses;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarberShop.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class FaturasController : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisterFaturaJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+
     public async Task<IActionResult> Register(
         [FromServices] IRegisterFaturaUseCase useCase,
         [FromBody] RequestFaturasJson request)

@@ -61,6 +61,15 @@ namespace BarberShop.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The email is invalid..
+        /// </summary>
+        public static string EMAIL_INVALID_ERROR {
+            get {
+                return ResourceManager.GetString("EMAIL_INVALID_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The barber name is required..
         /// </summary>
         public static string EMPTY_BARBER_NAME_ERROR {
@@ -79,11 +88,47 @@ namespace BarberShop.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email is required ..
+        /// </summary>
+        public static string EMPTY_EMAIL_ERROR {
+            get {
+                return ResourceManager.GetString("EMPTY_EMAIL_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name is required..
+        /// </summary>
+        public static string EMPTY_NAME_ERROR {
+            get {
+                return ResourceManager.GetString("EMPTY_NAME_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type the password..
+        /// </summary>
+        public static string EMPTY_PASSW_ERROR {
+            get {
+                return ResourceManager.GetString("EMPTY_PASSW_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The service is required..
         /// </summary>
         public static string EMPTY_TITLE_ERROR {
             get {
                 return ResourceManager.GetString("EMPTY_TITLE_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This email is already in use..
+        /// </summary>
+        public static string EXIST_EMAIL {
+            get {
+                return ResourceManager.GetString("EXIST_EMAIL", resourceCulture);
             }
         }
         
@@ -97,6 +142,15 @@ namespace BarberShop.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect email or password..
+        /// </summary>
+        public static string INVALID_LOGIN {
+            get {
+                return ResourceManager.GetString("INVALID_LOGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid status..
         /// </summary>
         public static string INVALID_STATUS_ERROR {
@@ -106,11 +160,74 @@ namespace BarberShop.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The bill was not found..
+        ///   Looks up a localized string similar to The tag is invalid..
+        /// </summary>
+        public static string INVALID_TAG_ERROR {
+            get {
+                return ResourceManager.GetString("INVALID_TAG_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The request was not found..
         /// </summary>
         public static string NOT_FOUND_ERROR {
             get {
                 return ResourceManager.GetString("NOT_FOUND_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password must have at least one of these characters: &quot;! ? # * . &quot;.
+        /// </summary>
+        public static string PASSW_CHAR_ERROR {
+            get {
+                return ResourceManager.GetString("PASSW_CHAR_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong current pasword..
+        /// </summary>
+        public static string PASSW_DIFF_CURRENT_PASSW_ERROR {
+            get {
+                return ResourceManager.GetString("PASSW_DIFF_CURRENT_PASSW_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password must have at least 8 characters..
+        /// </summary>
+        public static string PASSW_LENGH_ERROR {
+            get {
+                return ResourceManager.GetString("PASSW_LENGH_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password must have at least one lowcase letter..
+        /// </summary>
+        public static string PASSW_LOWCASE_ERROR {
+            get {
+                return ResourceManager.GetString("PASSW_LOWCASE_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password must have at least one number..
+        /// </summary>
+        public static string PASSW_NUM_ERROR {
+            get {
+                return ResourceManager.GetString("PASSW_NUM_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password must have at least one upcase letter..
+        /// </summary>
+        public static string PASSW_UPCASE_ERROR {
+            get {
+                return ResourceManager.GetString("PASSW_UPCASE_ERROR", resourceCulture);
             }
         }
         

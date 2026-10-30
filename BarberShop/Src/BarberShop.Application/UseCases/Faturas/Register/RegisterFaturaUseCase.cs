@@ -1,3 +1,5 @@
+using BarberShop.Domain.Services.LoggedUser;
+
 namespace BarberShop.Application.UseCases.Faturas.Register;
 
 public class RegisterFaturaUseCase : IRegisterFaturaUseCase
@@ -5,24 +7,30 @@ public class RegisterFaturaUseCase : IRegisterFaturaUseCase
     private readonly IFaturaWriteOnlyRepository _faturaRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly ILoggedUser _loggedUser;
 
     public RegisterFaturaUseCase(
         IFaturaWriteOnlyRepository faturaRepository,
         IUnitOfWork unitOfWork,
-        IMapper mapper)
+        IMapper mapper,
+        ILoggedUser loggedUser)
     {
         _faturaRepository = faturaRepository;
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _loggedUser = loggedUser;
     }
 
     public async Task<ResponseRegisterFaturaJson> Execute(RequestFaturasJson request)
     {
         Validate(request);
+        var loggedUser = await _loggedUser.Get();
 
         var fatura = _mapper.Map<Fatura>(request);
-        fatura.criado_Em = DateTime.UtcNow;
-        fatura.atualizado_Em = null;
+        fatura.UserId = loggedUser.Id;
+        fatura.CreateOn = DateTime.UtcNow;
+        fatura.LastUpdateOn = null;
+
         await _faturaRepository.Add(fatura);
         await _unitOfWork.Commit();
 

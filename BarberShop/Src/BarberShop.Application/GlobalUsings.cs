@@ -1,5 +1,6 @@
 global using AutoMapper;
 global using BarberShop.Communication.Requests;
+global using BarberShop.Communication.Response.Users;
 global using BarberShop.Communication.Responses;
 global using BarberShop.Domain.Entidades;
 global using BarberShop.Domain.Enums;

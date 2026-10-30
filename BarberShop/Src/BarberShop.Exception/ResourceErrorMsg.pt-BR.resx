@@ -117,26 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EMAIL_INVALID_ERROR" xml:space="preserve">
+    <value>Email inválido.</value>
+  </data>
   <data name="EMPTY_BARBER_NAME_ERROR" xml:space="preserve">
     <value>O nome do barbeiro é obrigatório.</value>
   </data>
   <data name="EMPTY_CLIENT_NAME_ERROR" xml:space="preserve">
     <value>O nome do cliente é obrigatório.</value>
   </data>
+  <data name="EMPTY_EMAIL_ERROR" xml:space="preserve">
+    <value>Email é obrigatório.</value>
+  </data>
+  <data name="EMPTY_NAME_ERROR" xml:space="preserve">
+    <value>Nome é obrigatório.</value>
+  </data>
+  <data name="EMPTY_PASSW_ERROR" xml:space="preserve">
+    <value>Digite a senha.</value>
+  </data>
   <data name="EMPTY_TITLE_ERROR" xml:space="preserve">
     <value>O serviço é obrigatório.</value>
+  </data>
+  <data name="EXIST_EMAIL" xml:space="preserve">
+    <value>Já existe um usuário com esse email.</value>
   </data>
   <data name="FUTURE_DATE_ERROR" xml:space="preserve">
     <value>A data não pode ser futura.</value>
   </data>
+  <data name="INVALID_LOGIN" xml:space="preserve">
+    <value>Email e/ou senha Incorreto(s).</value>
+  </data>
   <data name="INVALID_STATUS_ERROR" xml:space="preserve">
     <value>O status é invalido.</value>
   </data>
+  <data name="INVALID_TAG_ERROR" xml:space="preserve">
+    <value>A tag é inváida</value>
+  </data>
   <data name="NOT_FOUND_ERROR" xml:space="preserve">
-    <value>A fatura não foi encontrada.</value>
+    <value>O dado solicitado não foi encontrado.</value>
+  </data>
+  <data name="PASSW_CHAR_ERROR" xml:space="preserve">
+    <value>A senha deve ter pelo menos um desses caracteres: "! ? # * . "</value>
+  </data>
+  <data name="PASSW_DIFF_CURRENT_PASSW_ERROR" xml:space="preserve">
+    <value>Senha atual errada.</value>
+  </data>
+  <data name="PASSW_LENGH_ERROR" xml:space="preserve">
+    <value>A senha deve ter no mínimo 8 caracteres</value>
+  </data>
+  <data name="PASSW_LOWCASE_ERROR" xml:space="preserve">
+    <value>A senha deve ter no mínimo uma letra minúscula.</value>
+  </data>
+  <data name="PASSW_NUM_ERROR" xml:space="preserve">
+    <value>A senha seve ter pelo menos uma número.</value>
+  </data>
+  <data name="PASSW_UPCASE_ERROR" xml:space="preserve">
+    <value>A senha deve ter pelo menos uma letra maiúscula.</value>
   </data>
   <data name="PAY_TYPE_ERROR" xml:space="preserve">
-    <value>O método de pagamento é invalido.</value>
+    <value>O método de pagamento é inválido.</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Ocorreu um erro desconhecido.</value>

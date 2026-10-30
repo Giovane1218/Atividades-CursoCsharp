@@ -11,5 +11,5 @@ public interface IFaturaWriteOnlyRepository
     /// <param name="id"></param>
     /// <returns></returns>
 
-    Task<bool> Delete(long id);
+    Task<bool> Delete(long id, long userId);
 }

@@ -1,12 +1,4 @@
-using AutoMapper;
-using BarberShop.Communication.Requests;
-using BarberShop.Domain.Entidades;
-using BarberShop.Domain.Repositors;
-using BarberShop.Domain.Repositors.Faturas;
-using BarberShop.Exception;
-using BarberShop.Exception.ExceptionBase;
-using Microsoft.IdentityModel.Tokens.Experimental;
-using System.ComponentModel.DataAnnotations;
+using BarberShop.Domain.Services.LoggedUser;
 
 namespace BarberShop.Application.UseCases.Faturas.Update;
 
@@ -15,25 +7,31 @@ public class UpdateFaturaUseCase : IUpdateFaturaUseCase
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly IFaturaUpdateOnlyRepository _repository;
+    private readonly ILoggedUser _loggedUser;
 
-    public UpdateFaturaUseCase(IUnitOfWork unitOfWork, IMapper mapper, IFaturaUpdateOnlyRepository faturaUpdateOnlyRepository)
+    public UpdateFaturaUseCase(IUnitOfWork unitOfWork, 
+        IMapper mapper, 
+        IFaturaUpdateOnlyRepository faturaUpdateOnlyRepository,
+        ILoggedUser loggeduser)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _repository = faturaUpdateOnlyRepository;
+        _loggedUser = loggeduser;
     }
 
     public async Task Execute(long id, RequestFaturasJson request)
     {
-        Validate(request);
-        var fatura = await _repository.GetById(id);
-
+        await Validate(request);
+        var loggedUser = await _loggedUser.Get();
+        var fatura = await _repository.GetById(id, loggedUser.Id);
         if (fatura is null)
         {
             throw new NotFoundExeption(ResourceErrorMsg.NOT_FOUND_ERROR);
         }
 
-        fatura.atualizado_Em = DateTime.UtcNow;
+        fatura.Tags.Clear();
+        fatura.LastUpdateOn = DateTime.UtcNow;
         _mapper.Map(request, fatura);
 
         _repository.Update(fatura);
@@ -41,7 +39,7 @@ public class UpdateFaturaUseCase : IUpdateFaturaUseCase
         await _unitOfWork.Commit();
     }
 
-    private void Validate(RequestFaturasJson request)
+    private async Task Validate(RequestFaturasJson request)
     {
         var validator = new FaturaValidator();
         var result = validator.Validate(request);

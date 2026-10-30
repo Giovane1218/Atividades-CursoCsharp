@@ -1,4 +1,4 @@
-namespace BarberShop.Communication.Requests;
+namespace BarberShop.Communication.Request.Report;
 
 public class RequestInformationReportJson
 {

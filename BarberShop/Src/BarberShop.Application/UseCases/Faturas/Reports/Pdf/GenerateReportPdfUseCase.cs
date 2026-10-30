@@ -37,7 +37,7 @@ public class GenerateReportPdfUseCase : IGenerateReportPdfUseCase
             var row = table.AddRow();
             row.Height = "25";
 
-            AddFaturaTitle(row.Cells[0], fatura.servico);
+            AddFaturaTitle(row.Cells[0], fatura.Service);
 
             AddHeaderAmount(row.Cells[3]);
 
@@ -50,7 +50,7 @@ public class GenerateReportPdfUseCase : IGenerateReportPdfUseCase
             row.Cells[1].AddParagraph(fatura.Data.ToString("t"));
             SetStyleBaseFaturaInfo(row.Cells[1]);
 
-            row.Cells[2].AddParagraph(fatura.forma_Pgmt.PaymentTypeToString());
+            row.Cells[2].AddParagraph(fatura.FormaPgmt.PaymentTypeToString());
             SetStyleBaseFaturaInfo(row.Cells[2]);
 
             AddFaturaAmount(row.Cells[3], fatura.Valor);
@@ -59,16 +59,16 @@ public class GenerateReportPdfUseCase : IGenerateReportPdfUseCase
             row.Height = "25";
             
 
-            if(string.IsNullOrWhiteSpace(fatura.nota) == false)
+            if(string.IsNullOrWhiteSpace(fatura.Nota) == false)
             {
-                row.Cells[0].AddParagraph(fatura.nota);
+                row.Cells[0].AddParagraph(fatura.Nota);
                 row.Cells[0].MergeRight = 1;
                 row.Cells[0].Format.LeftIndent = "20";
             }
             SetStyleDescriptionRow(row.Cells[0]);
             SetStyleDescriptionRow(row.Cells[1]);
 
-            row.Cells[2].AddParagraph(fatura.status.StatusToString());
+            row.Cells[2].AddParagraph(fatura.Status.StatusToString());
             SetStyleDescriptionRow(row.Cells[2]);
 
             AddWhiteSpace(table);
@@ -157,7 +157,7 @@ public class GenerateReportPdfUseCase : IGenerateReportPdfUseCase
         decimal valorTotal = 0;
         foreach (var fatura in faturas)
         {
-            if (fatura.status == 0)
+            if (fatura.Status == 0)
             {
                 valorTotal += fatura.Valor;
             }

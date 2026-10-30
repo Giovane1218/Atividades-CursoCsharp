@@ -1,6 +1,7 @@
 using BarberShop.Domain.Entidades;
 using BarberShop.Domain.Repositors.Faturas;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace BarberShop.Infraestrutura.DataAccess.Repositories;
 
@@ -14,38 +15,52 @@ internal class FaturasRepository : IFaturaReadOnlyRepository, IFaturaWriteOnlyRe
     }
     public async Task Add(Fatura fatura)
     {
-        await _dbContext.faturamentos.AddAsync(fatura);
+        await _dbContext.Faturamentos.AddAsync(fatura);
     }
 
-    public async Task<bool> Delete(long id)
+    public async Task<bool> Delete(long id, long userId)
     {
-        var result = await _dbContext.faturamentos.FirstOrDefaultAsync(e => e.Id == id);
+        var result = await _dbContext.Faturamentos
+            .FirstOrDefaultAsync(e => e.Id == id && e.UserId == userId);
         if (result is null)
         {
             return false;
         }
 
-        _dbContext.faturamentos.Remove(result);
+        _dbContext.Faturamentos.Remove(result);
 
         return true;
     }
-    public async Task<List<Fatura>> GetAll()
+    public async Task<List<Fatura>> GetAll(long userId)
     {
-        return await _dbContext.faturamentos.AsNoTracking().ToListAsync();
+        return await _dbContext.Faturamentos
+            .AsNoTracking()
+            .Where(e => e.UserId == userId)
+            .ToListAsync();
     }
 
-    async Task<Fatura?> IFaturaReadOnlyRepository.GetById(long id)
+    async Task<Fatura?> IFaturaReadOnlyRepository.GetById(long id, long userId)
     {
-        return await _dbContext.faturamentos.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+        return await GetFullExpense()
+            .AsNoTracking()
+            .FirstOrDefaultAsync(e => e.Id == id && e.UserId == userId);
     }
-    async Task<Fatura?> IFaturaUpdateOnlyRepository.GetById(long id)
+    async Task<Fatura?> IFaturaUpdateOnlyRepository.GetById(long id, long userId)
     {
-        return await _dbContext.faturamentos.FirstOrDefaultAsync(e => e.Id == id);
+        return await GetFullExpense()
+            .FirstOrDefaultAsync(e => e.Id == id && e.UserId == userId);
     }
 
     public void Update(Fatura fatura)
     {
-        _dbContext.faturamentos.Update(fatura);
+        _dbContext.Faturamentos.Update(fatura);
+    }
+
+
+    private IIncludableQueryable<Fatura, ICollection<Tag>> GetFullExpense()
+    {
+        return _dbContext.Faturamentos
+            .Include(fatura => fatura.Tags);
     }
 
     public async Task<List<Fatura>> FilterByMonth(DateOnly month)
@@ -55,7 +70,7 @@ internal class FaturasRepository : IFaturaReadOnlyRepository, IFaturaWriteOnlyRe
         var endDate = new DateTime(year: month.Year, month: month.Month, day: daysInMonth, hour: 23, minute: 59, second: 59);
 
         return await _dbContext
-            .faturamentos
+            .Faturamentos
             .AsNoTracking()
             .Where(e => e.Data >= startDate && e.Data <= endDate)
             .OrderBy(fatura => fatura.Data)

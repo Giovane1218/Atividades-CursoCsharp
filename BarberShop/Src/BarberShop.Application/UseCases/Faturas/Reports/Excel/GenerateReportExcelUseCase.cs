@@ -35,14 +35,15 @@ public class GenerateReportExcelUseCase : IGenerateReportExcelUseCase
         var row = 2;
         foreach (var fatura in faturas)
         {
-            workSheet.Cell($"A{row}").Value = fatura.servico;
-            workSheet.Cell($"B{row}").Value = fatura.nome_Barbeiro;
-            workSheet.Cell($"C{row}").Value = fatura.nome_Cliente;
+            workSheet.Cell($"A{row}").Value = fatura.Service;
+            workSheet.Cell($"B{row}").Value = fatura.NomeBarbeiro;
+            workSheet.Cell($"C{row}").Value = fatura.NomeCliente;
             workSheet.Cell($"D{row}").Value = fatura.Data.ToString("dd/MM/yyyy");
             workSheet.Cell($"E{row}").Value = $"{Moeda} {fatura.Valor:#,##.00}";
-            workSheet.Cell($"F{row}").Value = fatura.forma_Pgmt.PaymentTypeToString();
-            workSheet.Cell($"G{row}").Value = fatura.status.StatusToString();
-            workSheet.Cell($"H{row}").Value = fatura.nota;
+            workSheet.Cell($"F{row}").Value = fatura.FormaPgmt.PaymentTypeToString();
+            workSheet.Cell($"G{row}").Value = fatura.Status.StatusToString();
+            workSheet.Cell($"G{row}").Value = fatura.Status.StatusToString();
+            workSheet.Cell($"H{row}").Value = fatura.Nota;
 
 
             row++;
